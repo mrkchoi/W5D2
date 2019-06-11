@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RedditClone</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body class="ui container main__wrapper">
+
+  <header class="header__main">
+    <h1 class="ui header">RedditClone</h1>
+
+    <div class="header__nav">
+      <% if logged_in? %>
+        <p>
+          Welcome <%= current_user.username %>!!
+        </p>
+        <form action="<%= session_url %>" method="POST">
+          <%= form_auth %>
+          <%= form_delete %>
+          <input type="submit" value="Sign Out" class="ui button basic red">
+        </form>
+      <% else %>
+        <a href="<%= new_session_url %>" class="ui button basic blue">Sign In</a>
+        <a href="<%= new_user_url %>" class="ui button basic green">+ Account</a>
+      <% end %>
+    </div>
+  </header>
+
+    <div class="ui divider"></div>
+
+    <%= flash[:errors] if flash[:errors] %>
+    
+    <%= yield %>
+  </body>
+</html>

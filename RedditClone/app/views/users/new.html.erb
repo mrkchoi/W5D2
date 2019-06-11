@@ -1,0 +1,19 @@
+<h2>Sign Up</h2>
+
+<form action="<%= users_url %>" method="POST" class="ui form">
+  <%= form_auth %>
+
+  <label>Username
+    <input type="text" name="user[username]">
+  </label>
+
+  <br><br>
+
+  <label>Password
+    <input type="text" name="user[password]">
+  </label>
+
+  <br><br>
+
+  <input type="submit" value="Sign Up" class="ui button primary">
+</form>
