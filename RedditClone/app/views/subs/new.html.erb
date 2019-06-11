@@ -1,0 +1,19 @@
+<h2>Create New Sub</h2>
+
+<form action="<%= subs_url %>" method="POST" class="ui form">
+  <%= form_auth %>
+
+  <label for="">Title:
+    <input type="text" name="sub[title]">
+  </label>
+
+  <br><br>
+
+  <label for="">Description:
+    <textarea name="sub[description]" id="" cols="30" rows="10"></textarea>
+  </label>
+
+  <br><br>
+
+  <input type="submit" value="Create Sub" class="ui button primary">
+</form>

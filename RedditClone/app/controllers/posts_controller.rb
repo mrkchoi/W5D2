@@ -6,11 +6,10 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
-    @post.sub_id = params[:sub_id]
     @post.author_id = current_user.id
 
     if @post.save
-      redirect_to sub_post_url(@post)
+      redirect_to post_url(@post)
     else
       flash[:errors] = @post.errors.full_messages
       render :new
@@ -30,18 +29,11 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if current_user.id == @post.author_id && @post.update_attributes(post_params)
-      redirect_to sub_post_url(@post)
+      redirect_to post_url(@post)
     else
       flash[:errors] = @post.errors.full_messages
       render :edit
     end
-  end
-
-  def destroy
-    @post = Post.find(params[:id])
-    sub_id = @post.sub_id
-    @post.destroy
-    redirect_to sub_url(sub_id)
   end
 
   private

@@ -1,0 +1,25 @@
+<h2>Create New Post</h2>
+
+<form action="<%= posts_url %>" method="POST" class="ui form">
+  <%= form_auth %>
+
+  <label for="">Title:
+    <input type="text" name="post[title]">
+  </label>
+
+  <br><br>
+
+  <label for="">URL:
+    <input type="text" name="post[url]">
+  </label>
+
+  <br><br>
+
+  <label for="">Content:
+    <textarea name="post[content]" id="" cols="30" rows="10"></textarea>
+  </label>
+
+  <br><br>
+
+  <input type="submit" value="Create Post" class="ui button primary">
+</form>

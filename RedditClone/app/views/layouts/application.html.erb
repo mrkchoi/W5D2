@@ -12,7 +12,11 @@
   <body class="ui container main__wrapper">
 
   <header class="header__main">
-    <h1 class="ui header">RedditClone</h1>
+    <h1 class="ui header">
+      <a href="<%= subs_url %>">RedditClone</a>
+    </h1>
+    
+    
 
     <div class="header__nav">
       <% if logged_in? %>
@@ -33,7 +37,13 @@
 
     <div class="ui divider"></div>
 
-    <%= flash[:errors] if flash[:errors] %>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <div class="ui warning">
+          <%= error %>
+        </div>
+      <% end %>
+    <% end %>
     
     <%= yield %>
   </body>

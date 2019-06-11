@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     if @user
       login!(@user)
-      render :new
+      redirect_to subs_url
     else
       flash.now[:errors] = ["Invalid credentials"]
       render :new

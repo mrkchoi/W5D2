@@ -18,6 +18,14 @@ class User < ApplicationRecord
   attr_reader :password
   before_validation :ensure_session_token
 
+  has_many :posts,
+    foreign_key: :author_id,
+    class_name: 'Post'
+
+  has_many :moderated_subs,
+    foreign_key: :moderator_id,
+    class_name: 'Sub'
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user

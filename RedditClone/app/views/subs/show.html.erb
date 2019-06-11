@@ -1,0 +1,24 @@
+<h4>Sub Detail Page</h4>
+<h2><%= @sub.title %></h2>
+<a href="<%= edit_sub_url(@sub) %>">Edit Sub ></a>
+
+<h4>Description</h4>
+<%= @sub.description %>
+
+<br><br>
+<div>
+  <a href="<%= new_post_url %>" class="ui button basic green">Make New Post!</a>
+</div>
+
+<br><br>
+
+<h4>Posts</h4>
+<% @sub.posts.each do |post| %>
+  <ul>
+    <li>
+      <a href="<%= post_url(post) %>">
+        <%= post.title %>
+      </a>
+    </li>
+  </ul>
+<% end %>
