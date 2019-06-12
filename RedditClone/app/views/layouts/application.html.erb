@@ -13,7 +13,9 @@
 
   <header class="header__main">
     <h1 class="ui header">
-      <a href="<%= subs_url %>">RedditClone</a>
+      <a href="<%= subs_url %>">
+        <img class="header__logo" src="/assets/reddit_logo.png" alt="Reddit Logo"> RedditClone
+      </a>
     </h1>
     
     
@@ -21,7 +23,7 @@
     <div class="header__nav">
       <% if logged_in? %>
         <p>
-          Welcome <%= current_user.username %>!!
+          Welcome <%= current_user.username.capitalize %>!!
         </p>
         <form action="<%= session_url %>" method="POST">
           <%= form_auth %>
@@ -39,7 +41,7 @@
 
     <% if flash[:errors] %>
       <% flash[:errors].each do |error| %>
-        <div class="ui warning">
+        <div class="ui warning message">
           <%= error %>
         </div>
       <% end %>

@@ -21,5 +21,30 @@
 
   <br><br>
 
+  
+
+  <label for="post[sub_ids][]">Related Subs:</label>
+
+  <br><br>
+
+    <% Sub.all.each do |sub| %>
+    <label>
+      <input 
+        type="checkbox" 
+        name="post[sub_ids][]" 
+        value="<%= sub.id %>" 
+        <%= 'checked' if @post.sub_ids.include?(sub.id) %>
+      >
+      <%= sub.title %>
+    </label>
+    <br>
+    
+  <% end %>
+
+  <br><br>
+
   <input type="submit" value="Create Post" class="ui button primary">
 </form>
+
+  <br><br>
+  <br><br>
